@@ -25,6 +25,18 @@ const getAllTickets = () => {
   });
 };
 
+const getTicketsByStatus = (status) => { 
+  return new Promise((resolve, reject) => {
+    try {
+      TicketSchema.find( { status: status } )
+        .then((data) => resolve(data))
+        .catch((error) => reject("Error at TicketSchema.find / " + error));
+    } catch (error) {
+      console.log("Error at getAllOpenTickets / " + error);
+    }
+  });
+};
+
 const getTicketsByUserId = (clientId) => {
   return new Promise((resolve, reject) => {
     try {
@@ -111,6 +123,7 @@ const deleteTicket = (_id, clientId) => {
 module.exports = {
   insertTicket,
   getAllTickets,
+  getTicketsByStatus,
   getTicketsByUserId,
   getTicketById,
   addClientMessage,

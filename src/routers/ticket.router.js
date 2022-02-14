@@ -3,6 +3,7 @@ const router = express.Router();
 const {
   insertTicket,
   getAllTickets,
+  getTicketsByStatus,
   getTicketsByUserId,
   getTicketById,
   addClientMessage,
@@ -45,12 +46,28 @@ router.post("/", userAuthorization, async (req, res) => {
   }
 });
 
-// get all open tickets 
-// this is the V1/ticket/all-open-tickets route
-router.get("/allTickets", userAuthorization, async (req, res) => {
+// get all tickets 
+// this is the V1/ticket/allTickets route
+router.get("/all-tickets", userAuthorization, async (req, res) => {
   try {
     const result = await getAllTickets();
 
+    return res.json({ status: "success", result });
+  } catch (error) {
+    console.log("Error at router.get / " + error);
+  }
+});
+
+// get tickets by status 
+// this is the V1/ticket/all-open-tickets route
+router.get("/tickets-by-status", userAuthorization, async (req, res) => {
+  try {
+
+    // req.status is a property of the request header
+    const status = req.body.status;
+   
+    const result = await getTicketsByStatus(status);
+   
     return res.json({ status: "success", result });
   } catch (error) {
     console.log("Error at router.get / " + error);
