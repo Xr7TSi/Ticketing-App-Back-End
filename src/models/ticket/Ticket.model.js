@@ -91,7 +91,7 @@ const updateStatusClosed = (_id, clientId) => {
       TicketSchema.findOneAndUpdate(
         { _id, clientId },
         {
-          status: "Closed",
+          status: "closed",
         },
         { new: true }
       )

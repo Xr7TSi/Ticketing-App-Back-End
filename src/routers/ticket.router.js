@@ -59,7 +59,7 @@ router.get("/all-tickets", userAuthorization, async (req, res) => {
 });
 
 // get tickets by status 
-// this is the V1/ticket/all-open-tickets route
+// this is the V1/ticket/tickets-by-status route
 router.get("/tickets-by-status", userAuthorization, async (req, res) => {
   try {
 
