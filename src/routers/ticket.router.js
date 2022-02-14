@@ -67,8 +67,14 @@ router.get("/tickets-by-status", userAuthorization, async (req, res) => {
     const status = req.body.status;
    
     const result = await getTicketsByStatus(status);
+
+    if(result.length) {
+      return res.json({ status: "success", result });
+    } else {
+      return res.json({ status: "failure", message: "No tickets found" });
+    }
    
-    return res.json({ status: "success", result });
+    
   } catch (error) {
     console.log("Error at router.get / " + error);
   }
