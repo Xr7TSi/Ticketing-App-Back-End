@@ -1,0 +1,35 @@
+//  create new user
+
+
+  {
+    "name": "JD Rein",
+    "email": "jrein1296@gmail.com",
+    "password": "password123",
+    "company": "Rein Enterprises LLC",
+    "address": "123 Cloud Ln, Atlanta, GA 30350",
+    "phone": "404-777-7777"
+  }
+
+
+// login
+
+{
+    "email": "jrein1296@gmail.com",
+    "password": "password123"
+}
+
+// create new ticket.  default values do not need to be included in the request.body
+
+{
+    "clientId" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpyZWluMTI5NkBnbWFpbC5jb20iLCJpYXQiOjE2NDM5ODI2OTgsImV4cCI6MTY0NjU3NDY5OH0.FdxMMAl5mPvt05fYABgh96-IP9zGlJbpgSuoaXOryKk",
+    "subject": "Test ticket for API 2 subject",
+    "status": "Test ticket for API 2 status",  
+    "conversations": 
+    [
+        {
+            "sender": "TestSender2",
+            "message": "Test for API 2, message 2.",
+        },
+   
+    ]
+}
