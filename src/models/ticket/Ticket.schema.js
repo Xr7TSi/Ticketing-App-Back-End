@@ -20,7 +20,7 @@ const TicketSchema = new Schema({
     type: String,
     maxLength: 100,
     required: true,
-    default: "Open",
+    default: "open",
   },
   conversations: [
     {

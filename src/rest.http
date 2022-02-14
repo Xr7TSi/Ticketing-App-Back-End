@@ -1,5 +1,5 @@
 ### user signup endpopint
-# POST http://localhost:3001/v1/user
+# POST http://localhost:/v1/user
 # Content-Type: application/json
 
 #    {
@@ -12,7 +12,7 @@
 #   }
 
 # #   ### user signin endpopint
-# POST http://localhost:3001/v1/user/login
+# POST http://localhost:5000/v1/user/login
 # Content-Type: application/json
 
 #    {
@@ -20,21 +20,21 @@
 #     "password": "password123", 
 #   }
 
-# GET http://localhost:3001/v1/user
+# GET http://localhost:5000/v1/user
 # Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpyZWluMTI5NkBnbWFpbC5jb20iLCJpYXQiOjE2NDM2NTE5NTgsImV4cCI6MTY0NjI0Mzk1OH0.uP6fjo7Qa0M6SAOhWnH-7Jb96NdiN-N-LqhTeZciobE
 
-# GET http://localhost:3001/v1/tokens
+# GET http://localhost:5000/v1/tokens
 # Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpyZWluMTI5NkBnbWFpbC5jb20iLCJpYXQiOjE2NDM2NTE5NTgsImV4cCI6MTY0NjI0Mzk1OH0.uP6fjo7Qa0M6SAOhWnH-7Jb96NdiN-N-LqhTeZciobE
 
 
-# POST http://localhost:3001/v1/user/reset-password
+# POST http://localhost:5000/v1/user/reset-password
 # Content-Type: application/json
 
 # {
 #   "email": "jrein1296@gmail.com"
 # }
 
-# PATCH http://localhost:3001/v1/user/reset-password
+# PATCH http://localhost:5000/v1/user/reset-password
 # Content-Type: application/json
 
 # {
@@ -43,7 +43,7 @@
 #   "newPassword": "password123"
 # }
 
-# DELETE http://localhost:3001/v1/user/logout
+# DELETE http://localhost:5000/v1/user/logout
 # Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpyZWluMTI5NkBnbWFpbC5jb20iLCJpYXQiOjE2NDQwMTQxMTIsImV4cCI6MTY0NjYwNjExMn0.t0y-2MhZi7DX5xf6C4lhYhOYmMZfvK8cytqvcfn8nMc
 
 
