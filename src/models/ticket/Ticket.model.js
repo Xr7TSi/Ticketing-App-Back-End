@@ -20,7 +20,31 @@ const getAllTickets = () => {
         .then((data) => resolve(data))
         .catch((error) => reject("Error at TicketSchema.find / " + error));
     } catch (error) {
+      console.log("Error at getAllTickets / " + error);
+    }
+  });
+};
+
+const getAllOpenTickets = () => {
+  return new Promise((resolve, reject) => {
+    try {
+      TicketSchema.find( {status : "open" })
+        .then((data) => resolve(data))
+        .catch((error) => reject("Error at TicketSchema.find / " + error));
+    } catch (error) {
       console.log("Error at getAllOpenTickets / " + error);
+    }
+  });
+};
+
+const getAllClosedTickets = () => {
+  return new Promise((resolve, reject) => {
+    try {
+      TicketSchema.find({ status : "closed" })
+        .then((data) => resolve(data))
+        .catch((error) => reject("Error at TicketSchema.find / " + error));
+    } catch (error) {
+      console.log("Error at getAllClosedTickets / " + error);
     }
   });
 };
@@ -67,7 +91,7 @@ const addClientMessage = (_id, message, sender, clientId) => {
       TicketSchema.findOneAndUpdate(
         { _id, clientId },
         {
-          status: "Pending operator response",
+          status: "open",
           $push: {
             conversations: { message, sender },
           },
@@ -123,6 +147,8 @@ const deleteTicket = (_id, clientId) => {
 module.exports = {
   insertTicket,
   getAllTickets,
+  getAllOpenTickets,
+  getAllClosedTickets,
   getTicketsByStatus,
   getTicketsByUserId,
   getTicketById,

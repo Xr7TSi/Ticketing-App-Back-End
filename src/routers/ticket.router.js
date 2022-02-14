@@ -3,6 +3,8 @@ const router = express.Router();
 const {
   insertTicket,
   getAllTickets,
+  getAllOpenTickets,
+  getAllClosedTickets,
   getTicketsByStatus,
   getTicketsByUserId,
   getTicketById,
@@ -53,6 +55,44 @@ router.get("/all-tickets", userAuthorization, async (req, res) => {
     const result = await getAllTickets();
 
     return res.json({ status: "success", result });
+  } catch (error) {
+    console.log("Error at router.get / " + error);
+  }
+});
+
+// get all open tickets 
+// this is the V1/ticket/all-open-tickets route
+router.get("/all-open-tickets", userAuthorization, async (req, res) => {
+  try {
+ 
+    const result = await getAllOpenTickets();
+
+    if(result.length) {
+      return res.json({ status: "success", result });
+    } else {
+      return res.json({ status: "failure", message: "No open tickets found" });
+    }
+   
+    
+  } catch (error) {
+    console.log("Error at router.get / " + error);
+  }
+});
+
+// get all closed tickets 
+// this is the V1/ticket/all-closed-tickets route
+router.get("/all-closed-tickets", userAuthorization, async (req, res) => {
+  try {
+ 
+    const result = await getAllClosedTickets();
+
+    if(result.length) {
+      return res.json({ status: "success", result });
+    } else {
+      return res.json({ status: "failure", message: "No closed tickets found" });
+    }
+   
+    
   } catch (error) {
     console.log("Error at router.get / " + error);
   }
